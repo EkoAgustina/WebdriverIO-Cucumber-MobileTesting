@@ -19,9 +19,6 @@ pipeline{
         stage('Running tests'){
             steps{
                 script{
-                    bat"tskill node"
-                }
-                script{
                     sleep(time: 1, unit: "SECONDS")
                     bat "npm run wdio -- --app=$Apps --deviceName=$Device_Name --cucumberTags=$Tags"
                 }

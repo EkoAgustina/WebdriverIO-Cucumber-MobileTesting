@@ -5,20 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "wdio run ./config/baseClass.js",
-    "a": "node ./test.js",
     "wdio": "wdio run ./config/baseClass.js",
     "generate_allure": "allure generate allure-results && allure open"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EkoAgustina/Mobile_Automation_-WebdriverIO_Cucumber.git"
+    "url": "git+https://github.com/EkoAgustina/WebdriverIO-Cucumber-MobileTesting.git"
   },
   "author": "Eko Agustina",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/EkoAgustina/Mobile_Automation_-WebdriverIO_Cucumber/issues"
+    "url": "https://github.com/EkoAgustina/WebdriverIO-Cucumber-MobileTesting/issues"
   },
-  "homepage": "https://github.com/EkoAgustina/Mobile_Automation_-WebdriverIO_Cucumber#readme",
+  "homepage": "https://github.com/EkoAgustina/WebdriverIO-Cucumber-MobileTesting#readme",
   "dependencies": {
     "@wdio/cli": "^8.3.5",
     "@wdio/logger": "^8.1.0",
