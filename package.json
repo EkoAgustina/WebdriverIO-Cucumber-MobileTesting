@@ -1,0 +1,44 @@
+{
+  "name": "mobiletesting_wdio_cucumber",
+  "version": "1.0.0",
+  "description": "Doing Mobile Testing with WDIO and Cucumber",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio run ./config/baseClass.js",
+    "a": "node ./test.js",
+    "wdio": "wdio run ./config/baseClass.js",
+    "generate_allure": "allure generate allure-results && allure open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EkoAgustina/Mobile_Automation_-WebdriverIO_Cucumber.git"
+  },
+  "author": "Eko Agustina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EkoAgustina/Mobile_Automation_-WebdriverIO_Cucumber/issues"
+  },
+  "homepage": "https://github.com/EkoAgustina/Mobile_Automation_-WebdriverIO_Cucumber#readme",
+  "dependencies": {
+    "@wdio/cli": "^8.3.5",
+    "@wdio/logger": "^8.1.0",
+    "@wdio/reporter": "^8.3.0",
+    "@wdio/spec-reporter": "^8.3.0",
+    "appium": "^2.0.0-beta.55",
+    "or": "^0.2.0",
+    "sleep": "^6.3.0",
+    "write-yaml-file": "^4.2.0",
+    "yargs": "^17.7.1"
+  },
+  "devDependencies": {
+    "@wdio/allure-reporter": "^8.3.5",
+    "@wdio/appium-service": "^8.3.5",
+    "@wdio/cucumber-framework": "^8.3.0",
+    "@wdio/local-runner": "^8.3.5",
+    "appium-uiautomator2-driver": "^2.12.3",
+    "js-yaml": "^3.14.0",
+    "lodash": "^4.17.21",
+    "wdio-allure-reporter": "^0.8.3",
+    "wdio-wait-for": "^3.0.2"
+  }
+}
