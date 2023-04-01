@@ -8,8 +8,8 @@ When(/^User click "(.*)"$/, async (locator) =>{
     await actionClick(locator)
 });
 
-Then(/^Element "(.*)" is displayed$/, async (locator) =>{
-    await assertion.element_displayed(locator)
+Then(/^Element "(.*)" (is displayed|not displayed)$/, async (locator,condition) =>{
+    await assertion.element_displayed(locator,condition)
 });
 
 Then(/^Fill "(.*)" with data "(.*)"$/, async (locator,local_data) =>{
@@ -22,7 +22,4 @@ Then(/^Element \"(.*)\" is (equal|not equal) with data \"(.*)\"$/, async (locato
 
 Then(/^User take screenshot with file name "(.*)"$/, async (name) =>{
     await baseScreen.takeScreenshot(name)
-    // await driver.saveScreenshot('./screenshot/'+name+'.png')
-    // console.log(name)
-    // await driver.takeScreenshot()
 });

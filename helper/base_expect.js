@@ -1,17 +1,43 @@
 const baseScreen = require('./base_screen');
+const {base_find} = require('./base_screen');
 const { key_data } = require('../mappings/mapper');
+const {actionGetText} = require('./base_get');
 
 /**
- * Used to verify if an element is displayed
+ * Used to verify whether an element is displayed or not displayed
  * @param {string} locator path element
+ * @param {string} condition Conditions for assertions
  */
-async function element_displayed(locator){
-    await expect(baseScreen.base_find(locator)).toBeExisting()
+async function element_displayed(locator,condition){
+   const elDisplayed = await base_find(locator).isDisplayed()
+   switch (condition){
+    case 'is displayed':
+        if (elDisplayed !== true){
+            throw new Error(`Element ${elDisplayed}, not displayed`)
+        }
+        else{
+            console.log(`Element ${elDisplayed}, is displayed`)
+            return elDisplayed
+        }
+    break
+    case 'not displayed':
+        if (elDisplayed !== false){
+            throw new Error(`Element ${elDisplayed}, is displayed not as expected`)
+        }
+        else{
+            console.log(`Element ${elDisplayed}, not displayed as expected`)
+            return elDisplayed
+        }
+    break
+    default:
+        throw new Error('Unknown conditions!')
+   }
+
 }
 
 
 /**
- * Used to verify if an element is displayed
+ * Used to verify whether the value of the element matches the test data
  * @param {string} locator path element
  * @param {string} test_data path test data
  * @param {string} condition Conditions for assertions
@@ -19,19 +45,19 @@ async function element_displayed(locator){
 async function equal_data(condition,locator,test_data){
     switch (condition){
         case 'equal':
-            await baseScreen.base_find(locator).waitUntil(async function () {
+            await base_find(locator).waitUntil(async function () {
                 return (await this.getText()) === key_data(test_data)
             }, {
                 timeout: 5000,
-                timeoutMsg: 'Your element \''+await baseScreen.base_find(locator).getText()+'\' not equal with data \''+key_data(test_data)+'\''
+                timeoutMsg: 'Your element \''+await actionGetText(locator)+'\' not equal with data \''+key_data(test_data)+'\''
             })
         break
         case 'not equal':
-            await baseScreen.base_find(locator).waitUntil(async function () {
+            await base_find(locator).waitUntil(async function () {
                 return (await this.getText()) !== key_data(test_data)
             }, {
                 timeout: 5000,
-                timeoutMsg: 'Your element \''+await baseScreen.base_find(locator).getText()+'\' is equal with data \''+key_data(test_data)+'\''
+                timeoutMsg: 'Your element \''+await actionGetText(locator)+'\' is equal with data \''+key_data(test_data)+'\''
             })
         break
         default:

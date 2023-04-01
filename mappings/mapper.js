@@ -9,11 +9,11 @@ const lodash = require('lodash');
  * @param {string} path2 path to yml file
  */
 function loadYaml (path1,path2){
-    let path = fs.readFileSync('./'+path1+'/'+path2+'.YAML')
+    let path = fs.readFileSync('./resources/'+path1+'/'+path2+'.YAML')
     try{
         return yaml.safeLoad(path);
     } catch(e){
-        throw new Error('Failed to read config file, your path!');
+        throw new Error(`Failed to read config file, your path! ${path}`);
     }
 
 }
@@ -40,7 +40,7 @@ function parse_element (locator) {
  * @param {string} test_data path data
  */
 function key_data (test_data) {
-    let path1 = 'resources'
+    let path1 = 'test_data'
     let getkey = test_data.split(':')
     yamlData = loadYaml(path1,getkey[0])
     let key

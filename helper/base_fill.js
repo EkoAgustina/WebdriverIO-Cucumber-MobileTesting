@@ -1,4 +1,4 @@
-const baseScreen = require('./base_screen');
+const {base_find} = require('./base_screen');
 const {key_data} = require('../mappings/mapper')
 
 /**
@@ -7,7 +7,7 @@ const {key_data} = require('../mappings/mapper')
  * @param {string} local_data path user input
  */
 async function actionFill(locator,local_data){
-    await baseScreen.base_find(locator).setValue(key_data(local_data))
+    await base_find(locator).setValue(key_data(local_data))
 }
 
 module.exports = {
