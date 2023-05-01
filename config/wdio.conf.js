@@ -289,7 +289,7 @@ exports.config = {
      * @param {Object}             context          Cucumber World object
      */
     afterStep: function (step, scenario, result, context,stepResult) {
-        myHooks.hookAfterStep()
+        myHooks.hookAfterStep(result,step)
     },
     /**
      *
