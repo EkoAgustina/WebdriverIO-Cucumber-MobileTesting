@@ -25,7 +25,7 @@ function loadYaml (path1,path2){
 function parse_element (locator) {
     let path1 = 'selector'
     let getkey = locator.split(':')
-    yamlData = loadYaml(path1,getkey[0])
+    let yamlData = loadYaml(path1, getkey[0])
     let key
     try{
         key = getkey[1]
@@ -42,7 +42,7 @@ function parse_element (locator) {
 function key_data (test_data) {
     let path1 = 'test_data'
     let getkey = test_data.split(':')
-    yamlData = loadYaml(path1,getkey[0])
+    let yamlData = loadYaml(path1, getkey[0])
     let key
     try{
         key = getkey[1]
