@@ -12,12 +12,4 @@ async function hooksAfterScenario(result) {
   }
 }
 
-var stdoutAnsiColor = (color, message) => {
-  if (color === 'red') {
-    return '\x1b[31m' + message + '\x1b[0m';
-  } else if (color === 'yellow') {
-    return '\x1b[33m' + message + '\x1b[0m';
-  }
-};
-
-export { hookAfterStep, hooksAfterScenario, stdoutAnsiColor };
+export { hookAfterStep, hooksAfterScenario };
