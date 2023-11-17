@@ -1,20 +1,17 @@
 Feature: Login
 
- @validAccount
-  Scenario: User logs in with a valid account
-    And User click "navbar:iconLogin"
-    Then Element "navbar:headerLogin" is displayed
-    And User click "signup:signupContain"
-    And Fill "signup:emailField" with data "user_data:email"
-    And Fill "signup:passwordField" with data "user_data:password"
-    And Fill "signup:repeatField" with data "user_data:password"
-    And User click "signup:sigupButton"
-    And User click "signup:okButton"
-    And User click "login:loginContain"
-    Then Element "login:usernameField" is equal with data "user_data:email"
-    Then Element "login:passwordField" is not equal with data "user_data:password"
-    Then User click "login:LoginButton"
-    Then Element "login:succesMessage" is equal with data "login_testData:successMessage"
-    Then User take screenshot with file name "Successfully_Login"
+@validAccount
+Scenario: Verify user will successfully log in using a valid account
+  And Fill "login:usernameField" with data "user_data:email"
+  And Fill "login:passwordField" with data "user_data:password"
+  And User click "login:loginButton"
+  Then Element "home:home_header" is displayed
+
+@invalidAccount
+Scenario: Verify user will not successfully sign in using an invalid account
+  And Fill "login:usernameField" with data "user_data:invalid_email"
+  And Fill "login:passwordField" with data "user_data:invalid_password"
+  And User click "login:loginButton"
+  Then Element "login:errorMessage" is displayed
 
 

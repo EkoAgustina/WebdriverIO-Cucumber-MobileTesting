@@ -14,7 +14,7 @@ deviceName='iPhone_15'
 iosUdid='EC865F6C-9547-4290-9942-B2A83F91B81C'
 
 #Cucumber tags
-cucumberTags='@validAccount'
+cucumberTags='@invalidAccount'
 
 export platformType=${platformType}
 export deviceName=${deviceName}

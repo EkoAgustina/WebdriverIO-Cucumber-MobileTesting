@@ -1,7 +1,15 @@
-loginContain: 'By.xpath => //android.view.ViewGroup[@content-desc="button-login-container"]/android.view.ViewGroup/android.widget.TextView'
-usernameField: 'By.xpath => //android.widget.EditText[@content-desc="input-email"]'
-passwordField: 'By.xpath => //android.widget.EditText[@content-desc="input-password"]'
+usernameField:
+  ios: 'By.accessibility_id => test-Username'
+  android: ''
 
-LoginButton: 'By.xpath => //android.view.ViewGroup[@content-desc="button-LOGIN"]/android.view.ViewGroup'
+passwordField:
+  ios: 'By.accessibility_id => test-Password'
+  android: ''
 
-succesMessage: 'By.id => android:id/message'
+loginButton:
+  ios: 'By.accessibility_id => test-LOGIN'
+  android: ''
+
+errorMessage:
+  ios: 'By.accessibility_id => test-Error message'
+  android: ''
