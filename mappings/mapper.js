@@ -1,5 +1,6 @@
 import loadPkg from 'js-yaml';
 import { readFileSync } from 'fs';
+import { env } from 'process';
 import pkg from 'lodash';
 const { load } = loadPkg;
 const { get } = pkg;
@@ -28,8 +29,13 @@ function parse_element(locator) {
   let getkey = locator.split(':');
   let yamlData = loadYaml(path1, getkey[0]);
   let key;
+  if (env.platformType === 'ios') {
+    key = getkey[1]+'.ios';
+  }
+  else if(env.platformType === 'android') {
+    key = getkey[1]+'.android';
+  }
   try {
-    key = getkey[1];
     return get(yamlData, key);
   } catch (e) {
     throw new Error('element not found');
@@ -66,6 +72,7 @@ function key_element(locator) {
   switch (cond) {
     case 'By.xpath':
       console.log('By.xpath: ', key);
+      console.log(key)
       return key;
       break;
     case 'By.id':
