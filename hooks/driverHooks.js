@@ -1,8 +1,8 @@
 import { sleep } from '../helper/base_screen.js';
-import allureReporter from '@wdio/allure-reporter';
+import { log } from '../helper/base_screen.js';
 function hookAfterStep(result, step) {
   if (result.passed) {
-    console.log(`\x1b[33m ✓ ${step.text} is passed \x1b[0m`);
+    log('INFO',`\x1b[33m ✓ ${step.text} is passed \x1b[0m`)
     sleep(2);
   }
 }
