@@ -53,7 +53,6 @@ function key_data(test_data) {
   let key;
   try {
     key = getkey[1];
-    console.log(get(yamlData, key));
     return get(yamlData, key);
   } catch (e) {
     throw new Error('Test data not found');
@@ -71,18 +70,14 @@ function key_element(locator) {
 
   switch (cond) {
     case 'By.xpath':
-      console.log('By.xpath: ', key);
-      console.log(key)
       return key;
       break;
     case 'By.id':
       key_cond = 'id=' + key;
-      console.log('By.id: ', key_cond);
       return key_cond;
       break;
     case 'By.accessibility_id':
       key_cond = '~' + key;
-      console.log('By.accessibility_id: ', key_cond);
       return key_cond;
       break;
     default:

@@ -18,7 +18,6 @@ async function cickCoordinate(coordinate) {
   var coordinateData = key_data(coordinate)
   var coordinate_x;
   var coordinate_y;
-  console.log(coordinateData)
   if(env.platformType === 'ios'){
     var ios_coordinateData = coordinateData.ios
     coordinate_x = ios_coordinateData.x
