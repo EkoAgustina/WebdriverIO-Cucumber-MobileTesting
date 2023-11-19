@@ -1,0 +1,15 @@
+productList_onesie:
+  ios: 'By.xpath => //XCUIElementTypeStaticText[@name="test-Item title" and @label="Sauce Labs Onesie"]'
+  android: ''
+
+productList_detailOnesieTitle:
+  ios: 'By.accessibility_id => Sauce Labs Onesie'
+  android: ''
+
+productList_detailOnesie_desc:
+  ios: 'By.xpath => //*[@name="Sauce Labs Onesie"]/following-sibling::XCUIElementTypeStaticText[1]'
+  android: ''
+
+productList_onesie_addToCart:
+  ios: 'By.xpath => (//XCUIElementTypeOther[@name="test-ADD TO CART"])[5]'
+  android: ''

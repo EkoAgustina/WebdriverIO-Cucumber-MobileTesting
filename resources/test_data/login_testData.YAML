@@ -1,2 +1,1 @@
-successMessage: "You are logged in!"
-regexPassword: "(.*)"
+errorMessage: "Username and password do not match any user in this service."
