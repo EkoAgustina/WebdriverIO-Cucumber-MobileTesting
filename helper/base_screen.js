@@ -1,3 +1,4 @@
+import logger from '@wdio/logger';
 import { key_element } from '../mappings/mapper.js';
 
 /**
@@ -28,4 +29,20 @@ function sleep(duration) {
   } while (currentDate - date < duration * 1000);
 }
 
-export { base_find, takeScreenshot, sleep };
+const log = (level, message) => {
+  switch (level) {
+    case 'WARNING':
+      logger('WARNING').warn(message)
+    break;
+    case 'INFO':
+      logger('INFO').info(message)
+    break;
+    case 'ERROR':
+      logger('ERROR').info(message)
+    break;
+    default:
+      throw new Error ('Unknown conditions')
+  }
+}
+
+export { base_find, takeScreenshot, sleep, log };
