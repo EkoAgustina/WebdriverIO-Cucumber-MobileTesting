@@ -1,3 +1,4 @@
+import { env } from 'process';
 import { base_find } from './base_screen.js';
 import { key_data } from '../mappings/mapper.js';
 
@@ -15,8 +16,21 @@ async function actionClick(locator) {
  */
 async function cickCoordinate(coordinate) {
   var coordinateData = key_data(coordinate)
+  var coordinate_x;
+  var coordinate_y;
+  console.log(coordinateData)
+  if(env.platformType === 'ios'){
+    var ios_coordinateData = coordinateData.ios
+    coordinate_x = ios_coordinateData.x
+    coordinate_y = ios_coordinateData.y
+  }
+  else if(env.platformType === 'android'){
+    var android_coordinateData = coordinateData.android
+    coordinate_x = android_coordinateData.x
+    coordinate_y = android_coordinateData.y
+  }
   await driver.touchAction({
-    action: 'tap', x: coordinateData.x, y:coordinateData.y
+    action: 'tap', x:coordinate_x, y:coordinate_y
   })
 }
 
