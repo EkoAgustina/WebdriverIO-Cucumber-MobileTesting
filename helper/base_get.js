@@ -10,7 +10,6 @@ async function actionGetText(locator) {
   if (textValue === '' || textValue === null) {
     throw new Error('Text Not Found');
   } else {
-    console.log('Its value: ', textValue);
     return textValue;
   }
 }
