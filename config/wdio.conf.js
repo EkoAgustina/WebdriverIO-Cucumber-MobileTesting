@@ -1,4 +1,4 @@
-import { allureConfig } from './allure.conf.js';
+import { allureConfig, specConfig } from './report.conf.js';
 import { sleep } from '../helper/base_screen.js';
 import { hookAfterStep, hooksAfterScenario } from '../hooks/driverHooks.js';
 export const config = {
@@ -31,7 +31,10 @@ export const config = {
   connectionRetryCount: 2,
   services: [['appium']],
   framework: 'cucumber',
-  reporters: ['spec', ['allure', allureConfig]],
+  reporters: [
+    ['spec',specConfig], 
+    ['allure', allureConfig]
+  ],
   cucumberOpts: {
     // <string[]> (file/dir) require files before executing features
     require: ['./cucumber/step-definitions/steps.js'],
