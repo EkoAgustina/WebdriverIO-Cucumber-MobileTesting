@@ -1,11 +1,7 @@
 platform=${1}
 
-#Platform to be used 
-platformType='ios'
-
-
 # Android setup
-# apps='wdio.apk'
+# apps='swaglabs.apk'
 # deviceName='Pixel4_12'
 
 # iOS setup
@@ -16,7 +12,7 @@ iosUdid='EC865F6C-9547-4290-9942-B2A83F91B81C'
 #Cucumber tags
 cucumberTags='@invalidAccount'
 
-export platformType=${platformType}
+export platformType=${platform}
 export deviceName=${deviceName}
 export apps=${apps}
 export iosUdid=${iosUdid}
