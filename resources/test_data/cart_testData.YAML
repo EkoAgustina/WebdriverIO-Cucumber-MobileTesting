@@ -1,4 +1,8 @@
 cart_SauceLabsOnesie: "Sauce Labs Onesie"
 cartIcon_coordinate:
-  x: 356
-  y: 57
+  ios:
+    x: 356
+    y: 57
+  android:
+    x: 1011
+    y: 157
