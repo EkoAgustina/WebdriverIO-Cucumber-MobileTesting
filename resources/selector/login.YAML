@@ -1,15 +1,15 @@
 usernameField:
   ios: 'By.accessibility_id => test-Username'
-  android: ''
+  android: 'By.accessibility_id => test-Username'
 
 passwordField:
   ios: 'By.accessibility_id => test-Password'
-  android: ''
+  android: 'By.accessibility_id => test-Password'
 
 loginButton:
   ios: 'By.accessibility_id => test-LOGIN'
-  android: ''
+  android: 'By.accessibility_id => test-LOGIN'
 
 errorMessage:
   ios: 'By.accessibility_id => test-Error message'
-  android: '' 
+  android: 'By.xpath => //*[@content-desc="test-Error message"]/child::android.widget.TextView[1]' 
