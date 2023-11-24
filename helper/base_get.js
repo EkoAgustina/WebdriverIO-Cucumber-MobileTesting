@@ -1,11 +1,11 @@
-import { base_find } from './base_screen.js';
+import { findeElement } from './base_screen.js';
 
 /**
  * Used as base get function
  * @param {string} locator path element
  */
 async function actionGetText(locator) {
-  const textValue = await base_find(locator).getText();
+  const textValue = await (await findeElement(locator)).getText()
 
   if (textValue === '' || textValue === null) {
     throw new Error('Text Not Found');

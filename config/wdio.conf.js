@@ -26,7 +26,7 @@ export const config = {
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
   baseUrl: 'http://localhost',
-  waitforTimeout: 25000,
+  waitforTimeout: 15000,
   connectionRetryTimeout: 100000,
   connectionRetryCount: 2,
   services: [['appium']],
@@ -56,7 +56,7 @@ export const config = {
     // <string> (expression) only execute the features or scenarios with tags matching the expression
     // tagExpression: '',
     // <number> timeout for step definitions
-    timeout: 20000,
+    timeout: 30000,
     // <boolean> Enable this config to treat undefined definitions as warnings.
     ignoreUndefinedDefinitions: false,
     tagsInTitle: true,
