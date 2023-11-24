@@ -11,20 +11,11 @@ export const config = {
   specs: [
     '../cucumber/features/**/*.feature',
   ],
-  exclude: [
-    // 'path/to/excluded/files'
-  ],
+  exclude: [],
   maxInstances: 10,
   // Level of logging verbosity: trace | debug | info | warn | error | silent
   logLevel: 'debug',
-  // If you only want to run your tests until a specific amount of tests have failed use
-  // bail (default is 0 - don't bail, run all tests).
   bail: 0,
-  //
-  // Set a base URL in order to shorten url command calls. If your `url` parameter starts
-  // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
-  // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
-  // gets prepended directly.
   baseUrl: 'http://localhost',
   waitforTimeout: 15000,
   connectionRetryTimeout: 100000,
@@ -36,28 +27,16 @@ export const config = {
     ['allure', allureConfig]
   ],
   cucumberOpts: {
-    // <string[]> (file/dir) require files before executing features
     require: ['./cucumber/step-definitions/steps.js'],
-    // <boolean> show full backtrace for errors
     backtrace: false,
-    // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
     requireModule: ['@babel/register'],
-    // <boolean> invoke formatters without executing steps
     format: ['pretty'],
     dryRun: false,
-    // <boolean> abort the run on first failure
     failFast: false,
-    // <boolean> hide step definition snippets for pending steps
     snippets: true,
-    // <boolean> hide source uris
     source: true,
-    // <boolean> fail if there are any undefined or pending steps
     strict: false,
-    // <string> (expression) only execute the features or scenarios with tags matching the expression
-    // tagExpression: '',
-    // <number> timeout for step definitions
     timeout: 30000,
-    // <boolean> Enable this config to treat undefined definitions as warnings.
     ignoreUndefinedDefinitions: false,
     tagsInTitle: true,
   },
