@@ -7,7 +7,7 @@ switch(env.platformType) {
     config.capabilities = [
       {
         platformName: 'android',
-        'appium:deviceName': env.deviceName,
+        'appium:deviceName': env.androidName,
         'appium:automationName': 'UIAutomator2',
         'appium:noReset': false,
         'appium:app': join(process.cwd(), './app/' + env.apps),
@@ -23,7 +23,7 @@ switch(env.platformType) {
     config.capabilities = [
       {
         platformName: 'iOS',
-        'appium:deviceName': env.deviceName,
+        'appium:deviceName': env.iosName,
         'appium:udid': env.iosUdid,
         'appium:automationName': 'XCUITest',
         'appium:noReset': false,
