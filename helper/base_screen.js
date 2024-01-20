@@ -43,7 +43,7 @@ async function elForExist (locator) {
  * Used as a basic function to search for Elements
  * @param {string} locator path element
  */
-const findeElement = async (locator) => {
+const findElement = async (locator) => {
   return new Promise(async (resolve, reject) => {
     await Promise.all([
       elForExist(locator),
@@ -66,4 +66,4 @@ async function takeScreenshot (name) {
   await driver.saveScreenshot('./screenshot/' + name + '.png');
 }
 
-export { findeElement, takeScreenshot, sleep, log };
+export { findElement, takeScreenshot, sleep, log };

@@ -1,5 +1,5 @@
 import { env } from 'process';
-import { findeElement } from './base_screen.js';
+import { findElement } from './base_screen.js';
 import { keyData } from '../mappings/mapper.js';
 
 /**
@@ -7,7 +7,7 @@ import { keyData } from '../mappings/mapper.js';
  * @param {string} locator path element
  */
 async function actionClick (locator) {
-  await (await findeElement(locator)).click()
+  await (await findElement(locator)).click()
 }
 
 /**

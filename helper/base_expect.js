@@ -1,6 +1,6 @@
 import { keyData, keyElement } from '../mappings/mapper.js';
 import { actionGetText } from './base_get.js';
-import { findeElement } from './base_screen.js'
+import { findElement } from './base_screen.js';
 
 /**
  * Used to verify whether an element is displayed or not displayed
@@ -8,7 +8,7 @@ import { findeElement } from './base_screen.js'
  * @param {string} condition Conditions for assertions
  */
 async function elementDisplayed (locator, condition) {
-  const elDisplayed = await (await findeElement(locator)).isDisplayed()
+  const elDisplayed = await (await findElement(locator)).isDisplayed()
   switch (condition) {
     case 'is displayed':
       if (!elDisplayed) {

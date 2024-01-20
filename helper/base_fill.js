@@ -1,4 +1,4 @@
-import { findeElement } from './base_screen.js';
+import { findElement } from './base_screen.js';
 import { keyData } from '../mappings/mapper.js';
 
 /**
@@ -7,7 +7,7 @@ import { keyData } from '../mappings/mapper.js';
  * @param {string} localData path user input
  */
 async function actionFill (locator, localData) {
-  await (await findeElement(locator)).setValue(keyData(localData))
+  await (await findElement(locator)).setValue(keyData(localData))
 }
 
 export { actionFill };
