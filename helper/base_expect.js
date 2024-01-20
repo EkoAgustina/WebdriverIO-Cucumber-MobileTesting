@@ -1,37 +1,27 @@
-import { key_data, key_element } from '../mappings/mapper.js';
+import { keyData, keyElement } from '../mappings/mapper.js';
 import { actionGetText } from './base_get.js';
+import { findeElement } from './base_screen.js'
 
 /**
  * Used to verify whether an element is displayed or not displayed
  * @param {string} locator path element
  * @param {string} condition Conditions for assertions
  */
-async function element_displayed(locator, condition) {
+async function elementDisplayed (locator, condition) {
+  const elDisplayed = await (await findeElement(locator)).isDisplayed()
   switch (condition) {
     case 'is displayed':
-      await $(key_element(locator)).waitUntil(
-        async function () {
-          return (await this.isDisplayed()) === true;
-        },
-        {
-          timeout: 10000,
-          timeoutMsg: `Element '${key_element(locator)}' not displayed not as expected`
-        }
-      );
-    break;
+      if (!elDisplayed) {
+        throw new Error(`Element '${keyElement(locator)}' is not displayed!`)
+      }
+      break;
     case 'not displayed':
-      await $(key_element(locator)).waitUntil(
-        async function () {
-          return (await this.isDisplayed()) != true;
-        },
-        {
-          timeout: 10000,
-          timeoutMsg: `Element ${key_element(locator)} is displayed not as expected`
-        }
-      );
-    break;
+      if (elDisplayed) {
+        throw new Error(`Element '${keyElement(locator)}' is displayed, not as expected!`)
+      }
+      break;
     default:
-      throw new Error ('Unknown conditions')
+      throw new Error('Unknown conditions')
   }
 }
 
@@ -41,29 +31,29 @@ async function element_displayed(locator, condition) {
  * @param {string} test_data path test data
  * @param {string} condition Conditions for assertions
  */
-async function equal_data(condition, locator, test_data) {
+async function equalData (condition, locator, testData) {
   switch (condition) {
     case 'equal':
-      await $(key_element(locator)).waitUntil(
+      await $(keyElement(locator)).waitUntil(
         async function () {
-          return (await this.getText()) === key_data(test_data);
+          return (await this.getText()) === keyData(testData);
         },
         {
           timeout: 10000,
           timeoutMsg:
-            "Your element '" + (await actionGetText(locator)) + "' not equal with data '" + key_data(test_data) + "'",
+            "Your element '" + (await actionGetText(locator)) + "' not equal with data '" + keyData(testData) + "'"
         }
       );
       break;
     case 'not equal':
-      await $(key_element(locator)).waitUntil(
+      await $(keyElement(locator)).waitUntil(
         async function () {
-          return (await this.getText()) !== key_data(test_data);
+          return (await this.getText()) !== keyData(testData);
         },
         {
           timeout: 10000,
           timeoutMsg:
-            "Your element '" + (await actionGetText(locator)) + "' is equal with data '" + key_data(test_data) + "'",
+            "Your element '" + (await actionGetText(locator)) + "' is equal with data '" + keyData(testData) + "'"
         }
       );
       break;
@@ -72,4 +62,4 @@ async function equal_data(condition, locator, test_data) {
   }
 }
 
-export { element_displayed, equal_data };
+export { elementDisplayed, equalData };

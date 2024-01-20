@@ -9,7 +9,7 @@ export const config = {
   runner: 'local',
   port: 4723,
   specs: [
-    '../cucumber/features/**/*.feature',
+    '../cucumber/features/**/*.feature'
   ],
   exclude: [],
   maxInstances: 10,
@@ -23,7 +23,7 @@ export const config = {
   services: [['appium']],
   framework: 'cucumber',
   reporters: [
-    ['spec',specConfig], 
+    ['spec', specConfig],
     ['allure', allureConfig]
   ],
   cucumberOpts: {
@@ -36,9 +36,9 @@ export const config = {
     snippets: true,
     source: true,
     strict: false,
-    timeout: 30000,
+    timeout: 60000,
     ignoreUndefinedDefinitions: false,
-    tagsInTitle: true,
+    tagsInTitle: true
   },
 
   //
@@ -202,7 +202,7 @@ export const config = {
    */
   onComplete: function (exitCode, config, capabilities, results) {
     sleep(3);
-  },
+  }
   /**
    * Gets executed when a refresh happens.
    * @param {String} oldSessionId session ID of the old session

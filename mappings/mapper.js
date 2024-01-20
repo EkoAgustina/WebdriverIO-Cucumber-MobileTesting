@@ -11,8 +11,8 @@ const { get } = pkg;
  * @param {string} path1 path to folder yml file
  * @param {string} path2 path to yml file
  */
-function loadYaml(path1, path2) {
-  let path = readFileSync('./resources/' + path1 + '/' + path2 + '.YAML');
+function loadYaml (path1, path2) {
+  const path = readFileSync('./resources/' + path1 + '/' + path2 + '.YAML');
   try {
     return load(path);
   } catch (e) {
@@ -24,16 +24,15 @@ function loadYaml(path1, path2) {
  * Used to map Element paths
  * @param {string} locator path element
  */
-function parse_element(locator) {
-  let path1 = 'selector';
-  let getkey = locator.split(':');
-  let yamlData = loadYaml(path1, getkey[0]);
+function parseElement (locator) {
+  const path1 = 'selector';
+  const getkey = locator.split(':');
+  const yamlData = loadYaml(path1, getkey[0]);
   let key;
   if (env.platformType === 'ios') {
-    key = getkey[1]+'.ios';
-  }
-  else if(env.platformType === 'android') {
-    key = getkey[1]+'.android';
+    key = getkey[1] + '.ios';
+  } else if (env.platformType === 'android') {
+    key = getkey[1] + '.android';
   }
   try {
     return get(yamlData, key);
@@ -44,12 +43,12 @@ function parse_element(locator) {
 
 /**
  * Used to map Test Data or Local Data paths
- * @param {string} test_data path data
+ * @param {string} testData path data
  */
-function key_data(test_data) {
-  let path1 = 'test_data';
-  let getkey = test_data.split(':');
-  let yamlData = loadYaml(path1, getkey[0]);
+function keyData (testData) {
+  const path1 = 'test_data';
+  const getkey = testData.split(':');
+  const yamlData = loadYaml(path1, getkey[0]);
   let key;
   try {
     key = getkey[1];
@@ -62,27 +61,24 @@ function key_data(test_data) {
  * Used to map Element paths
  * @param {string} locator path element
  */
-function key_element(locator) {
-  let parse_key = parse_element(locator).split(' => ');
-  let cond = parse_key[0];
-  let key = parse_key[1];
-  let key_cond;
+function keyElement (locator) {
+  const parseKey = parseElement(locator).split(' => ');
+  const cond = parseKey[0];
+  const key = parseKey[1];
+  let keyCond;
 
   switch (cond) {
     case 'By.xpath':
       return key;
-      break;
     case 'By.id':
-      key_cond = 'id=' + key;
-      return key_cond;
-      break;
+      keyCond = 'id=' + key;
+      return keyCond;
     case 'By.accessibility_id':
-      key_cond = '~' + key;
-      return key_cond;
-      break;
+      keyCond = '~' + key;
+      return keyCond;
     default:
       throw new Error('Unknown selector!');
   }
 }
 
-export { key_element, key_data };
+export { keyElement, keyData };

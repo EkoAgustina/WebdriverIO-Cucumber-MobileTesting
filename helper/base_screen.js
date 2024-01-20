@@ -1,7 +1,7 @@
 import logger from '@wdio/logger';
-import { key_element } from '../mappings/mapper.js';
+import { keyElement } from '../mappings/mapper.js';
 
-function sleep(duration) {
+function sleep (duration) {
   const date = Date.now();
   let currentDate = null;
   do {
@@ -18,15 +18,24 @@ const log = (level, message) => {
   switch (level) {
     case 'WARNING':
       logger('WARNING').warn(message)
-    break;
+      break;
     case 'INFO':
       logger('INFO').info(message)
-    break;
+      break;
     case 'ERROR':
       logger('ERROR').info(message)
-    break;
+      break;
     default:
-      throw new Error ('Unknown conditions')
+      throw new Error('Unknown conditions')
+  }
+}
+
+async function elForExist (locator) {
+  try {
+    await $(keyElement(locator)).waitForExist({ timeout: 6500 })
+  } catch (err) {
+    log('WARNING', err.message)
+    sleep(2)
   }
 }
 
@@ -35,26 +44,25 @@ const log = (level, message) => {
  * @param {string} locator path element
  */
 const findeElement = async (locator) => {
-  return new Promise (async (resolve,reject) => {
+  return new Promise(async (resolve, reject) => {
     await Promise.all([
-      $(key_element(locator)).waitForExist({ timeout: 10000 }),
-      $(key_element(locator)) 
+      elForExist(locator),
+      $(keyElement(locator))
     ])
-    .then((element) => {
-      resolve(element[1])
-    })
-    .catch((err) => {
-      reject(err)
-    })
+      .then((element) => {
+        resolve(element[1])
+      })
+      .catch((err) => {
+        reject(err)
+      })
   })
-  
 }
 
 /**
  * Used as a basic function to take screenshot
  * @param {string} name screenshot name
  */
-async function takeScreenshot(name) {
+async function takeScreenshot (name) {
   await driver.saveScreenshot('./screenshot/' + name + '.png');
 }
 

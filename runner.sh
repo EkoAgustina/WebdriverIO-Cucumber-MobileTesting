@@ -1,6 +1,6 @@
 platform=${1}
 
-apps='swaglabs.app'
+apps='swaglabs.apk'
 
 # Setup for android platform
 androidName='Pixel4_12'

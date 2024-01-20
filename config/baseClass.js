@@ -2,8 +2,8 @@ import { config } from './wdio.conf.js';
 import { join } from 'path';
 import { env } from 'process';
 
-switch(env.platformType) {
-  case 'android': {
+switch (env.platformType) {
+  case 'android':
     config.capabilities = [
       {
         platformName: 'android',
@@ -14,12 +14,11 @@ switch(env.platformType) {
         'appium:appWaitDuration': 40000,
         'appium:appWaitActivity':
           'SplashActivity, SplashActivity,OtherActivity, *, *.SplashActivity',
-        'appium:newCommandTimeout': 60,
-      },
+        'appium:newCommandTimeout': 60
+      }
     ];
-  }
-  break;
-  case 'ios': {
+    break;
+  case 'ios':
     config.capabilities = [
       {
         platformName: 'iOS',
@@ -31,13 +30,12 @@ switch(env.platformType) {
         'appium:appWaitDuration': 40000,
         'appium:appWaitActivity':
           'SplashActivity, SplashActivity,OtherActivity, *, *.SplashActivity',
-        'appium:newCommandTimeout': 60,
-      },
+        'appium:newCommandTimeout': 60
+      }
     ];
-  }
-  break;
+    break;
   default: {
-    throw new Error (`Your platform '${env.platformType}' not recognized`)
+    throw new Error(`Your platform '${env.platformType}' not recognized`)
   }
 }
 

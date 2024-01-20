@@ -1,12 +1,12 @@
-let allureConfig = {
+const allureConfig = {
   outputDir: 'allure-results',
   disableWebdriverStepsReporting: true,
   disableWebdriverScreenshotsReporting: false,
   useCucumberStepReporter: true,
-  addConsoleLogs: false,
+  addConsoleLogs: false
 };
 
-let specConfig = {
+const specConfig = {
   onlyFailures: false,
   addConsoleLogs: false,
   realtimeReporting: true,
